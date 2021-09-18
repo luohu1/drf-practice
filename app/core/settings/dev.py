@@ -9,8 +9,28 @@ USE_TZ = False
 AUTH_USER_MODEL = 'account.User'
 
 INSTALLED_APPS += [
-    'account'
+    # third party apps
+    'rest_framework',
+    'drf_spectacular',
+    # local apps
+    'account',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'DRF Practices API',
+    'DESCRIPTION': 'drf-practices description',
+    'VERSION': 'v1',
+    'CONTACT': {
+        'name': 'Luo Hui',
+        'url': 'https://github.com/luohu1/drf-practices',
+        'email': 'mylhmail@163.com'
+    },
+    'LICENSE': {'name': 'MIT License'},
+}
 
 DATABASES = {
     'default': {
